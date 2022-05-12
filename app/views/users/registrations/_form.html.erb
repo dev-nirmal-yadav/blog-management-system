@@ -1,0 +1,32 @@
+<%= form_for(resource, as: resource_name, url: new_user_register_path, remote: true, html: { class: 'mt-8 space-y-6'}) do |f| %>
+  <div class="rounded-md shadow-sm -space-y-px">
+    <div>
+      <%= f.label :first_name, t('.first_name'), class: 'sr-only' %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: t('.first_name'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(resource, :first_name)}" %>
+      <%= inline_errors resource, :first_name %>
+    </div>
+    <div>
+      <%= f.label :last_name, t('.last_name'), class: 'sr-only' %><br />
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: t('.last_name'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(resource, :last_name)}" %>
+      <%= inline_errors resource, :last_name %>
+    </div>
+    <div>
+      <%= f.label :email, t('.email_address'), class: 'sr-only' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('.email_address'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(resource, :email)}" %>
+      <%= inline_errors resource, :email %>
+    </div>
+    <div>
+      <%= f.label :password, t('.password'), class: 'sr-only' %><br />
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: t('.password'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(resource, :password)}" %>
+      <%= inline_errors resource, :password %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation, t('.confirm_password'), class: 'sr-only' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "current-password", placeholder: t('.confirm_password'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(resource, :password_confirmation)}" %>
+      <%= inline_errors resource, :password_confirmation %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit t('.sign_up'), class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>

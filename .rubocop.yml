@@ -1,0 +1,39 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'config/environments/development.rb'
+    - 'config/initializers/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+  SuggestExtensions: false
+Style/BlockComments:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/SafeNavigation:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Metrics/BlockLength:
+  IgnoredMethods: ['feature', 'describe', 'context', 'FactoryBot.define']
+Style/FormatStringToken:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/NegatedIf:
+  Enabled: false
+Style/WhileUntilModifier:
+  Enabled: false
+Metrics/MethodLength:
+  IgnoredMethods: ['up', 'arel']
+Metrics/AbcSize:
+  IgnoredMethods: ['arel']

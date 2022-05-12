@@ -1,0 +1,58 @@
+<div class="grid rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4">
+    <div class="font-bold text-gray-500 text-xl mb-2"><%= post.title %></div>
+    <p class="text-gray-500 text-base">
+      <%= post.description.to_plain_text.truncate(70, omission: '') %>
+      <%= link_to t('.read_more'), post_path(post.id), class: 'text-blue-500' %>
+    </p>
+  </div>
+  <% if post.tags.present? %>
+    <div class="px-6 pt-4 pb-2">
+      <% post.tags.each do |tag| %>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
+          <svg class="inline flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+          <%= tag.name %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+  <% if post.published_at.present? %>
+    <div class="px-6">
+      <span class="inline-block bg-pink-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
+          <svg class="inline flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+          </svg>
+          <%= t('.published_at', time: post.published_at&.to_s(:db)) %>
+      </span>
+    </div>
+  <% end %>
+  <% if params[:own_posts] %>
+    <div class="place-content-center px-6 pt-4 grid grid-flow-col gap-2 auto-rows-auto mb-3">
+      <%= link_to t('.edit'), edit_post_path(post.id), class: 'text-center h-auto px-1 py-1 border border-transparent text-md font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500' %>
+      <%= link_to t('.delete'), post_path(post.id), method: :delete, class: 'text-center h-auto px-1 py-1 border border-transparent text-md font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+      <% if post.draft? %>
+        <%= link_to t('.publish'), publish_post_path(post.id), method: :put, class: 'text-center h-auto px-1 py-1 border border-transparent text-md font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500' %>
+      <% end %>
+      <% if post.main_image.attached? %>
+        <%= link_to t('.remove_image'), delete_main_image_attachment_post_url(post.main_image.id), method: :delete, class: 'text-center h-auto px-1 py-1 border border-transparent text-md font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500' %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="px-6 pt-4 pb-2">
+      <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-500 mr-2 mb-2">
+        <svg class="inline flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="45.532px" height="45.532px" viewBox="0 0 45.532 45.532" style="enable-background:new 0 0 45.532 45.532;"
+           xml:space="preserve">
+          <g>
+            <path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765
+              S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,7.53-7.531,7.53
+              c-4.158,0-7.529-3.371-7.529-7.53C15.237,10.18,18.608,6.808,22.766,6.808z M22.761,39.579c-4.149,0-7.949-1.511-10.88-4.012
+              c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592
+              c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"/>
+          </g>
+        </svg>
+        <%= full_name(post.user) %>
+      </span>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="container mx-auto px-10">
+  <h2 class="mt-6 text-center text-3xl font-bold text-yellow-600">
+    <%= t('.posts') %>
+  </h2>
+  <% if posts.present? %>
+    <div class="m-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+      <% cache [posts, params[:own_posts]] do %>
+        <%= render posts %>
+      <% end %>
+    </div>
+    <div class="text-center my-4">
+      <%= will_paginate posts %>
+    </div>
+  <% else %>
+    <div class="text-center p-10 text-blue-700" role="alert">
+      <p class="text-sm text-lg">
+        <% if params[:own_posts] %>
+          <%= t('.no_posts_created') %>
+        <% else %>
+          <%= t('.no_published_post') %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>

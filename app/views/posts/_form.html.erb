@@ -1,0 +1,30 @@
+<%= form_for(post) do |f| %>
+  <div class="max-w-full mx-3 mb-6">
+    <%= f.label :title, t('.title'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-title' %>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: t('.title'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-600 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :title)}" %>
+    <%= inline_errors post, :title %>
+  </div>
+  <div class="mx-3 mb-6">
+    <%= f.label :description, t('.description'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-description' %>
+    <%= f.rich_text_area :description, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-600 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>
+    <%= inline_errors post, :description %>
+  </div>
+  <div class="mx-3 mb-6 relative">
+    <%= f.label :main_image, t('.main_image'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-main-image' do %>
+      <% if f.object.main_image.attached? %>
+        <%= t('.attached_file', file_name: f.object.main_image.filename) %>
+      <% else %>
+        <%= t('.pick_new_file') %>
+      <% end %>
+    <% end %>
+    <%= f.file_field :main_image, accept: 'image/png,image/jpg,image/jpeg', class: "appearance-none rounded-none  block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :main_image)}" %>
+    <%= inline_errors post, :main_image %>
+  </div>
+  <div class="mx-3 mb-6 relative">
+    <%= f.label :tag_list, t('.tags'), class: 'block uppercase tracking-wide text-gray-600 text-xs font-bold mb-2" for="grid-tags' %>
+    <%= f.text_field :tag_list, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(post, :description)}" %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('.submit'), class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>

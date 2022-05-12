@@ -1,0 +1,39 @@
+<div class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl w-full space-y-8">
+    <div>
+    <h2 class="mt-6 text-center text-3xl font-bold text-yellow-600">
+        <%= t('.edit_profile') %>
+      </h2>
+    </div>
+    <%= form_for(user, method: :patch) do |f| %>
+      <div class="mx-3 mb-6">
+        <%= f.label :first_name, t('.first_name'), class: 'block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" for="grid-first-name' %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: t('.first_name'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(user, :first_name)}" %>
+        <%= inline_errors user, :first_name %>
+      </div>
+      <div class="mx-3 mb-6">
+        <%= f.label :last_name, t('.last_name'), class: 'block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" for="grid-last-name' %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: t('.last_name'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(user, :last_name)}" %>
+        <%= inline_errors user, :last_name %>
+      </div>
+      <div class="mx-3 mb-6">
+        <%= f.label :email, t('.email_address'), class: 'block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" for="grid-email' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: t('.email_address'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(user, :email)}" %>
+        <%= inline_errors user, :email %>
+      </div>
+      <div class="mx-3 mb-6">
+        <%= f.label :password, t('.password'), class: 'block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" for="grid-password' %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "password", placeholder: t('.password'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(user, :password)}" %>
+        <%= inline_errors user, :password %>
+      </div>
+      <div class="mx-3 mb-6">
+        <%= f.label :password_confirmation, t('.confirm_password'), class: 'block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2" for="grid-password-confirmation' %>
+        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "password", placeholder: t('.confirm_password'), class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm #{text_field_css(user, :password_confirmation)}" %>
+        <%= inline_errors user, :password_confirmation %>
+      </div>
+      <div class="actions">
+        <%= f.submit t('.update'), class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+one:
+  record: post0 (Post)
+  name: description
+  body: <p>Lorem ipsum dolor sit amet.</p>

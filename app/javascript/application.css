@@ -1,0 +1,48 @@
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+
+#user-menu ~ #user-menu-dropdown {
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 75ms;
+  opacity: 0;
+  --transform-scale-x: 0;
+  --transform-scale-y: 0;
+}
+
+#user-menu ~ #user-menu-dropdown:focus-within, #user-menu:focus ~ #user-menu-dropdown {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 100ms;
+  opacity: 1;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+}
+
+.pagination {
+  @apply flex justify-center;
+  @apply my-2 py-2;
+}
+
+@import "~tailwindcss/utilities";
+
+.pagination * {
+  @apply px-3 py-2 mx-2;
+  @apply text-gray-700 no-underline bg-white rounded-lg;
+}
+
+.pagination a:hover {
+  @apply font-semibold text-gray-200 bg-gray-700;
+}
+
+.trix-content {
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}

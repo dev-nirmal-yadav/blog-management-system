@@ -1,0 +1,90 @@
+en:
+  devise:
+    sessions:
+      new:
+        log_in: &log_in Log in
+        edit_profile: Edit Profile
+      form:
+        email_address: &email_address Email address
+        password: &password Password
+        log_in: *log_in
+  general:
+    access_denied: You are not authorized to access this page.
+  posts:
+    create:
+      new_post_created: New Post created.
+    destroy:
+      deleted_successfully: Post deleted successfully.
+    delete_main_image_attachment:
+      image_deleted_successfully: Image deleted successfully.
+    edit:
+      edit: Edit
+      publish: Publish
+      remove_image: Remove Image
+    form:
+      attached_file: "The currently attached file is %{file_name}. Click here to replace this file."
+      click_to_replace_file: "Click here to replace %{file_name}."
+      description: &description Description
+      main_image: Main Image
+      click_to_add_file: "Click here to add upload new image."
+      check_to_remove_image: Check to remove main image
+      pick_new_file: No file has been uploaded yet. Please pick a file.
+      title: Title
+      submit: Submit
+      tags: Tags
+    index:
+      add_new_post: &add_new_post Add New Post
+      description: Description
+      edit: Edit
+      delete: Delete
+      no_published_post: No published posts
+      no_posts_created: You have not created any posts. Please create one.
+      title: Title
+      tags: Tags
+      posts: Posts
+      user: User
+    new:
+      add_new_post: *add_new_post
+    show:
+      description: *description
+      not_found: Post not found.
+      published_at: "Published at: %{time}"
+    post:
+      author: 'Author:'
+      read_more: '...Read More'
+      published_at: "Published at: %{time}"
+    publish:
+      post_published_successfully: Post published successfully.
+    update:
+      post_updated: Post updated.
+  shared:
+    nav:
+      posts: All Posts
+      manage_posts: Manage Posts
+      sign_out: Sign Out
+      sign_in: Sign In
+      sign_up: &sign_up Sign Up
+  users:
+    edit:
+      record_not_found: User not found.
+      first_name: &first_name First Name
+      last_name: &last_name Last Name
+      email_address: *email_address
+      password: *password
+      confirm_password: &confirm_password Confirm Password
+      update: Update
+      edit_profile: Edit Profile
+    update:
+      user_details_updated_successfully: User details updated successfully.
+    registrations:
+      new:
+        sign_up: *sign_up
+      form:
+        first_name: *first_name
+        last_name: *last_name
+        email_address: *email_address
+        password: *password
+        confirm_password: *confirm_password
+        sign_up: *sign_up
+      create:
+        signed_up_successfully: You have successfully signed up
